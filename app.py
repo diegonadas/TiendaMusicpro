@@ -8,13 +8,13 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/producto/<int:producto_id>')
+@app.route('/comprar/<int:producto_id>')
 def mostrar_producto(producto_id):
     producto = {
         'id': producto_id,
         'nombre': 'Producto',
-        'precio': 9.99,
-        'descripcion': 'ejemplo de producto'
+        'precio': 50000,
+        'descripcion': 'producto tipo'
     }
     return render_template('producto.html', producto=producto)
 @app.route('/')
