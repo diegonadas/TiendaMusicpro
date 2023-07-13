@@ -17,8 +17,9 @@ def mostrar_producto(producto_id):
         'descripcion': 'producto tipo'
     }
     return render_template('producto.html', producto=producto)
-@app.route('/')
-def index():
+
+@app.route('/productos')
+def productos():
     response = requests.get('https://musicpro.bemtorres.win/api/v1/bodega/producto')
     if response.status_code == 200:
         data = response.json()
