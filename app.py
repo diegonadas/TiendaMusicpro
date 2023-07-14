@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from flask import Flask, jsonify
 import requests
+import json
+
 
 app = Flask(__name__)
 
@@ -23,7 +25,7 @@ def productos():
     response = requests.get('https://musicpro.bemtorres.win/api/v1/bodega/producto')
     if response.status_code == 200:
         data = response.json()
-        return jsonify(data)
+        return render_template('productos.html', productos=data)
     else:
         return 'Error al obtener datos de la API'
 
